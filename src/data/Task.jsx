@@ -1,4 +1,4 @@
-
+// this section contains example of how user support type in tasks
 const Task = [
     {
         id:1,
@@ -8,7 +8,7 @@ const Task = [
     {
         id:1,
         task:"Go to the office",
-        completed:false
+        completed:true
     }
 
 ]

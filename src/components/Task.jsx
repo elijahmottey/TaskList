@@ -1,12 +1,23 @@
 
-import Task  from "../data/Task"
 
-function Task() {
+
+function Tasks({tasksData}) {
   return (
     <div> 
-      {Task.map()}
+      {tasksData.map((item)=>{
+         const result = <p key={item.id}>
+           <input type="checkbox"
+           checked={item.completed}
+           
+           /> 
+           
+           {item.task}
+           
+           </p>
+         return result
+      })}
     </div>
   )
 }
 
-export default Task
+export default Tasks
