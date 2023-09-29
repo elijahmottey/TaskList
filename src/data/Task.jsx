@@ -6,7 +6,7 @@ const Task = [
         completed:false
     },
     {
-        id:1,
+        id:2,
         task:"Go to the office",
         completed:true
     }

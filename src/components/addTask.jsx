@@ -1,30 +1,39 @@
-import { useState, useRef } from "react"
+// AddTasks.js
+import React, { useState } from "react";
 
+const AddTasks = ({ handleValue }) => { // Change prop name to "handleValue"
+  const [taskText, setTaskText] = useState(""); // Initialize task text
 
-const AddTasks = ()=>{
-    // use Ref
-   const reference= useRef()
+  const handleInput = (e) => {
+    setTaskText(e.target.value);
+  };
 
-    const [addtask,setAddTask]=useState(
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
 
-        <button>Add Task</button>
-    )
+    const newTask = {
+      taskText,
+      completed: false // You may want to set a default value for "completed"
+    };
+    handleValue(newTask);
 
+    // Clear the input field
+    setTaskText("");
+  };
 
-    const useRefs= (e)=>{
-        console.log(reference.current.value)
-     }
-    const inputText =()=>{
-      
-       setAddTask(
-        <input type="text" ref={useRefs} />
-       )
-       
-    }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          onChange={handleInput}
+          value={taskText}
+          placeholder="Add Task"
+        />
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  );
+};
 
-    return(
-       <p onClick={inputText}>{addtask}</p> 
-
-    )
-}
-export default AddTasks
+export default AddTasks;

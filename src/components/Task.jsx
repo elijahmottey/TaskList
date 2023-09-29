@@ -1,23 +1,17 @@
+import TaskList from "./TaskList";
 
-
-
-function Tasks({tasksData}) {
+function Tasks({ tasksData }) {
+  console.log(tasksData)
   return (
-    <div> 
-      {tasksData.map((item)=>{
-         const result = <p key={item.id}>
-           <input type="checkbox"
-           checked={item.completed}
-           
-           /> 
-           
-           {item.task}
-           
-           </p>
-         return result
-      })}
+    <div>
+      {tasksData.map((item) => (
+        <TaskList key={item.id}
+         
+         item= {item}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
 export default Tasks
