@@ -1,34 +1,37 @@
+// App.js
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import './App.css';
-import Header from './components/Header';
+import Header from './components/Header'
 import Tasks from './components/Task';
 import Task from './data/Task';
-import AddTask from './components/addTask';
-
+import AddTask from './components/addTask'
 
 function App() {
-  const userName = "Elijah Mottey";
+  const userName = "Elijah Mottey"
 
-  // useState for tasksData
-  const [tasksData, setTasksData] = useState(Task);
+  // useState
+  const [tasksData, setTasksData] = useState(Task)
 
-  // Function to add a new task
-  const handleAdd = (taskText) => {
-    const newTask = {
-      id: uuidv4(),
-      task: taskText,
-      completed: false,
-    };
+  
 
-    setTasksData([...tasksData, newTask]);
-  };
+  const handleAdd = (task) => {
+     task.id = uuidv4()
+     setTasksData([task, ...tasksData])
+  
+  }
+
+  const deleteTask=(id)=>{
+    if(window.confirm("Are you sure you want to delete this task?")){
+      setTasksData(tasksData.filter((item)=>item.id !== id))
+    }
+  }
 
   return (
     <>
       <Header userName={userName} />
-      <AddTask handleAdd={handleAdd} />
-      <Tasks tasksData={tasksData} />
+      <AddTask handleValue={handleAdd} /> {/* Change prop name to "handleValue" */}
+      <Tasks tasksData={tasksData} handleDelete={deleteTask} />
     </>
   );
 }

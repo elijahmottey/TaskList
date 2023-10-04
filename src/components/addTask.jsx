@@ -1,6 +1,7 @@
+// AddTasks.js
 import React, { useState } from "react";
 
-const AddTask = ({ handleAdd }) => {
+const AddTasks = ({ handleValue }) => { // Change prop name to "handleValue"
   const [taskText, setTaskText] = useState(""); // Initialize task text
 
   const handleInput = (e) => {
@@ -9,11 +10,19 @@ const AddTask = ({ handleAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
-
-    if (taskText.trim() !== "") {
-      handleAdd(taskText); // Call the handleAdd function to add the task
-      setTaskText(""); // Clear the input field
+   if(taskText.trim()!== ""){
+    const newTask = {
+      task:taskText,
+      completed: false 
     }
+    handleValue(newTask);
+   }
+   
+  
+  
+
+    // Clear the input field
+    setTaskText("");
   };
 
   return (
@@ -31,4 +40,4 @@ const AddTask = ({ handleAdd }) => {
   );
 };
 
-export default AddTask;
+export default AddTasks;

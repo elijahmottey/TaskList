@@ -1,5 +1,5 @@
 import TaskList from './TaskList'; 
-function Tasks({ tasksData }) {
+function Tasks({ tasksData,handleDelete }) {
   if (tasksData === '' || tasksData.length === 0) {
     return (
       <>
@@ -11,7 +11,9 @@ function Tasks({ tasksData }) {
   return (
     <div>
       {tasksData.map((item) => (
-        <TaskList key={item.id} item={item} />
+        <TaskList key={item.id} item={item}
+        handleDelete={handleDelete}
+         />
       ))}
     </div>
   );
