@@ -1,37 +1,33 @@
-// App.js
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import './App.css';
-import Header from './components/Header'
+import Header from './components/Header';
 import Tasks from './components/Task';
 import Task from './data/Task';
-import AddTask from './components/addTask'
+import AddTask from './components/addTask';
+
 
 function App() {
-  const userName = "Elijah Mottey"
+  const userName = "Elijah Mottey";
 
-  // useState
-  const [tasksData, setTasksData] = useState(Task)
+  // useState for tasksData
+  const [tasksData, setTasksData] = useState(Task);
 
-  if (tasksData === '' || tasksData.length === 0) {
-    return (
-      <>
-        <Header userName={userName} />
-        <button type='submit'>Add task</button>
-        <h1>No data</h1>
-      </>
-    )
-  }
+  // Function to add a new task
+  const handleAdd = (taskText) => {
+    const newTask = {
+      id: uuidv4(),
+      task: taskText,
+      completed: false,
+    };
 
-  const handleValue = (task) => {
-    task.id = uuidv4()
-    setTasksData([...tasksData, task])
-  }
+    setTasksData([...tasksData, newTask]);
+  };
 
   return (
     <>
       <Header userName={userName} />
-      <AddTask handleValue={handleValue} /> {/* Change prop name to "handleValue" */}
+      <AddTask handleAdd={handleAdd} />
       <Tasks tasksData={tasksData} />
     </>
   );

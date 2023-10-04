@@ -8,7 +8,7 @@ const Task = [
     {
         id:2,
         task:"Go to the office",
-        completed:true
+        completed:false
     }
 
 ]

@@ -1,17 +1,18 @@
-import { useState } from "react"
+import { useState } from "react";
 
+function TaskList({ item }) {
+  const [completed, setCompleted] = useState(item.completed);
 
-function TaskList({item}) {
-  const[completed,setCompleted]=useState(false)
-  const handleChange =()=>{
-    setCompleted(true)
-  }
+  const handleChange = () => {
+    setCompleted(!completed);
+  };
+
   return (
     <div>
-     <input type="checkbox" checked={completed} onChange={handleChange}  />
+      <input type="checkbox" checked={completed} onChange={handleChange} />
       {item.task}
     </div>
-  )
+  );
 }
 
-export default TaskList
+export default TaskList;
