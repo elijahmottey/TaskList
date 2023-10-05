@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { FaTimes } from 'react-icons/fa'
 
-function TaskList({ item, handleDelete }) {
+function TaskList({ item, handleDelete   }) {
   const [completed, setCompleted] = useState(false);
 
   const handleChange = () => {
     setCompleted((true)? window.confirm("Are you done with this task"):null);
   };
+
+
+
 
   return (
     <div>

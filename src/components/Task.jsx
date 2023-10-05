@@ -12,7 +12,7 @@ function Tasks({ tasksData,handleDelete }) {
     <div>
       {tasksData.map((item) => (
         <TaskList key={item.id} item={item}
-        handleDelete={handleDelete}
+        handleDelete={handleDelete} 
          />
       ))}
     </div>
