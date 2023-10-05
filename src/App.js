@@ -46,21 +46,17 @@ function App() {
       setTasksData(tasksData.filter((item)=>item.id !== id))
     }
   }
-  let countComplete =0;
+  
   
       
-  for(let i=0;i<tasksData.length ;i++){
-    if(tasksData[i].completed===true){
-      countComplete++
-    }
-      }
+ 
 
   return (
     <>
       <Header userName={userName} />
       <AddTask handleValue={handleAdd} /> {/* Change prop name to "handleValue" */}
-      <Tasks tasksData={tasksData} handleDelete={deleteTask}  />
-      <div>{countComplete} completed out of {tasksData.length}  </div>
+      <Tasks  tasksData={tasksData} handleDelete={deleteTask}  />
+      <div>{tasksData.filter((task1)=>task1.completed)} completed out of {tasksData.length}  </div>
     </>
   );
 }

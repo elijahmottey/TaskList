@@ -12,10 +12,10 @@ function TaskList({ item, handleDelete   }) {
 
 
   return (
-    <div>
-      <input type="checkbox" checked={completed} onChange={handleChange} />
+    <div className="task">
+      <input type="checkbox" checked={completed} onChange={handleChange} className="checkbox"/>
       {item.task}
-      <button onClick={()=>handleDelete(item.id)}> <FaTimes color="red"/></button>
+      <button className="cancel" onClick={()=>handleDelete(item.id)}> <FaTimes color="red"/></button>
     </div>
   );
 }

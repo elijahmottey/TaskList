@@ -33,8 +33,9 @@ const AddTasks = ({ handleValue }) => { // Change prop name to "handleValue"
           onChange={handleInput}
           value={taskText}
           placeholder="Add Task"
+          className="addtask"
         />
-        <button type="submit">Add</button>
+        <button className="add-b" type="submit">Add</button>
       </form>
     </div>
   );
