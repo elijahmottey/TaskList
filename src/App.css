@@ -59,3 +59,36 @@ right:31.6rem;
 
 color:white;
 }
+
+
+/*tablet mode*/
+
+@media (max-width:1024px) {
+
+  
+.task {
+  width:80%;
+ 
+}
+
+.addtask{
+  width:50%;
+  height:2.1rem;
+ 
+
+}
+.add-b{
+  width:10%;
+  height:2.1rem;
+  background-color: blue;
+  right:15.6rem;
+ 
+}
+  
+}
+
+/* mobile mode*/
+
+@media (max-width:768px){
+
+}
